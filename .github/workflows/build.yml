@@ -23,10 +23,10 @@ jobs:
 
     name: ${{ matrix.os }} Py ${{ matrix.python }} ${{ matrix.architecture }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
           architecture: ${{ matrix.architecture }}
@@ -51,10 +51,10 @@ jobs:
     name: Build Python source .tar.gz
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: 3.x
 
@@ -64,7 +64,7 @@ jobs:
           poetry build
 
       - name: Upload source package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: fido2-python-sdist
           path: dist
